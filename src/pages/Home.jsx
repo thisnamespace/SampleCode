@@ -27,7 +27,6 @@ const Header = styled.header`
   }
 `;
 
-
 class Home extends React.Component {
   constructor(props) {
     super(props);
