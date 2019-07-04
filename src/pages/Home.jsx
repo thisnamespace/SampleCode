@@ -93,83 +93,19 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true,
       filter: "",
-      products: [
-        {
-          size: ["XS", "S", "L", "XL"],
-          productName: "Striped shirt",
-          productImage: "product-1.jpg",
-          price: "$18.88",
-          isExclusive: false,
-          isSale: true,
-          index: 0
-        },
-        {
-          size: ["XS", "S"],
-          productName: "Denim shirt",
-          productImage: "product-2.jpg",
-          price: "$25.44",
-          isExclusive: false,
-          isSale: false,
-          index: 1
-        },
-        {
-          size: ["S", "M"],
-          productName: "Plain cotton t-shirt",
-          productImage: "product-3.jpg",
-          price: "$12.93",
-          isExclusive: true,
-          isSale: false,
-          index: 2
-        },
-        {
-          size: ["XL"],
-          productName: "Plain 3/4 sleeve cotton t-shirt",
-          productImage: "product-4.jpg",
-          price: "$26.32",
-          isExclusive: false,
-          isSale: false,
-          index: 3
-        },
-        {
-          size: ["M", "L"],
-          productName: "White dress shirt",
-          productImage: "product-5.jpg",
-          price: "$12.16",
-          isExclusive: false,
-          isSale: false,
-          index: 4
-        },
-        {
-          size: ["XS", "S", "M"],
-          productName: "Long Sleeve Skivvy Top",
-          productImage: "product-6.jpg",
-          price: "$30.27",
-          isExclusive: false,
-          isSale: false,
-          index: 5
-        },
-        {
-          size: ["M", "L", "XL"],
-          productName: "Puffer Vest with Hood",
-          productImage: "product-7.jpg",
-          price: "$24.26",
-          isExclusive: false,
-          isSale: true,
-          index: 6
-        },
-        {
-          size: ["XS", "S", "XL"],
-          productName: "Funnel Neck Swing Top",
-          productImage: "product-8.jpg",
-          price: "$17.73",
-          isExclusive: true,
-          isSale: false,
-          index: 7
-        }
-      ]
+      products: []
     };
+  }
+
+  componentDidMount() {
+    fetch("https://api.jsonbin.io/b/5cae9a54fb42337645ebcad3")
+      .then(response => {
+        return response.json();
+      })
+      .then(products => {
+        this.setState({ products });
+      });
   }
 
   getProducts = () => {
