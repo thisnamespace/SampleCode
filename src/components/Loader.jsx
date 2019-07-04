@@ -51,4 +51,3 @@ export const Loader = () => (
     <div></div>
   </StyledSpinner>
 )
-
