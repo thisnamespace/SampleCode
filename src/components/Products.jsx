@@ -20,6 +20,7 @@ const ProductItem = styled.div`
   border-top: none;
   border-left: none;
   flex: 0 1 100%;
+  /* Creates the sizes for the products at each defined breakpoint */
   max-width: 100%;
   @media (min-width: 600px) {
     max-width: 50%;
@@ -75,6 +76,7 @@ class Products extends React.Component {
   render() {
     return (
       <ProductGrid>
+          {/* Loops through the items passed as a pop creating each product item */}
           {this.props.items.map((product, i) => (
             <ProductItem key={i}>
               <img
@@ -96,7 +98,7 @@ class Products extends React.Component {
             </ProductItem>
           ))}
           {this.props.items.length == 0 && 
-            <span>No items available</span> 
+            <h2>No items available</h2> 
           }
       </ProductGrid>
     );
