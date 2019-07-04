@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import Products from "./../components/Products.jsx";
 import { Loader } from "./../components/Loader.jsx"
-import sizes from "./../const/sizes";
 
 const Header = styled.header`
   background: #def1f4;
@@ -35,6 +34,7 @@ class Home extends React.Component {
     this.state = {
       loading: true,
       filter: "",
+      filters: [],
       products: []
     };
   }
@@ -57,12 +57,18 @@ class Home extends React.Component {
     });
   };
 
+  getFilters = () => {
+    // Using Array#reduce and Array#filter methods, did it this way to satisfy the "Build dropdown filters from data" comment from requirements. 
+    // It causes the order in the dropdown to be a a little unintuitive, could not think of an elegant way to reorder without listing all again which would have
+    // defeated the purpose of building it from data. See earlier commit for loading from const.
+    return this.state.products.reduce((arr, ele) => ([].push.apply(arr, ele.size.filter((v) => arr.indexOf(v) == -1)), arr), []);
+  }
+
   onFilterChange = event => {
     this.setState({ filter: event.target.value });
   };
 
   render() {
-    console.log(this.state);
     return (
       //React fragment lets you group a list of children without adding extra nodes to the DOM.
       <>
@@ -70,7 +76,7 @@ class Home extends React.Component {
           <h1>Women's Tops</h1>
           <select onChange={this.onFilterChange} value={this.state.filter}>
             <option value="">Filter by Size</option>
-            {sizes.map((size, i) => (
+            {this.getFilters().map((size, i) => (
               <option key={i} value={size}>{size}</option>
             ))}
           </select>
