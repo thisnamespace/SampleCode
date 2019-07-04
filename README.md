@@ -3,12 +3,14 @@ Just a minor react web app to show coding practices
 
 ## Installation
 
+This guide assumes you already have node and npm installed.
 Open Terminal/Command prompt
 Navigate to the directory where you wish to clone the project
 Run the following commands:
 
 ```sh
 git clone https://github.com/thisnamespace/SampleCode.git
+cd SampleCode
 npm install 
 npm run start
 ```
