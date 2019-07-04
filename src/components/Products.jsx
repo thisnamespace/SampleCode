@@ -21,7 +21,7 @@ const ProductItem = styled.div`
   border-left: none;
   flex: 0 1 100%;
   max-width: 100%;
-  @media (min-width: 720px) {
+  @media (min-width: 600px) {
     max-width: 50%;
   }
   @media (min-width: 1024px) {
