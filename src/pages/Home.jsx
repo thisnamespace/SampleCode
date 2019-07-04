@@ -79,7 +79,6 @@ class Home extends React.Component {
             ))}
           </select>
         </Header>
-        //Sh
         {!this.state.loading ?
           <Products items={this.getProducts()} />
           : <Loader />
