@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
+// To keep this file smaller rather than listing each individual route here.
 import routes from "./const/routes";
 
 function App() {
