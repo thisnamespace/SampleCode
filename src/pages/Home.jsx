@@ -45,7 +45,6 @@ class Home extends React.Component {
         return response.json();
       })
       .then(products => {
-
         this.setState({ products, loading: false });
       });
   }
@@ -81,6 +80,7 @@ class Home extends React.Component {
             ))}
           </select>
         </Header>
+        //Sh
         {!this.state.loading ?
           <Products items={this.getProducts()} />
           : <Loader />
